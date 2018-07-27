@@ -1,9 +1,23 @@
 package com.roman.pricing;
 
 import static org.junit.Assert.*;
+
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import org.jeasy.rules.api.Rules;
+import org.jeasy.rules.mvel.MVELRuleFactory;
+
 import org.junit.Test;
 
 public class CheckOutTest {
+	
+	CheckOut co;
+	public CheckOut initCheckOut() throws FileNotFoundException {
+		CheckOut co = new CheckOut();
+		Rules rules = MVELRuleFactory.createRulesFrom(new FileReader("src/main/java/config/rules.yml"));
+		co.initializeRule(rules);
+		return co;
+	}
 
 	@Test
 	public void testTotals() throws Exception {
@@ -25,9 +39,9 @@ public class CheckOutTest {
 
 	}
 
-	private Integer price(String goods) {
-		CheckOut co = new CheckOut();
-
+	private Integer price(String goods) throws FileNotFoundException {
+		co = initCheckOut();
+		
 		for (int i = 0; i < goods.length(); i++) {
 			co.scan(goods.substring(i, i + 1));
 		}
@@ -36,9 +50,10 @@ public class CheckOutTest {
 
 	@Test
 	public void testIncremental() throws Exception {
-		CheckOut co = new CheckOut();
+		co = initCheckOut();
+		
 		assertEquals(new Integer(0), co.total());
-
+		
 		co.scan("A");
 		assertEquals(Integer.valueOf(50), co.total());
 		co.scan("B");

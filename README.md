@@ -19,3 +19,17 @@ This week, let’s implement the code for a supermarket checkout that calculates
     C     20
     D     15
 ```
+
+## How to run
+
+This application is packaged as a war which has Tomcat 8 embedded. No Tomcat or JBoss
+installation is necessary. You run it using the ```java -jar```  command.
+
+* Clone this repository 
+* Make sure you are using JDK 1.8 and Maven 3.x
+* You can build the project and run the tests by running:
+
+```
+mvn clean package
+
+```
