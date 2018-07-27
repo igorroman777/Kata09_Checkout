@@ -1,6 +1,6 @@
 # Coding: Kata09_Checkout
 
-This is a Java  application.
+This is a Java application. A framework 'Easy Rules' as a Java rules engine is used. 
 
 ## Code problem details:
 
@@ -25,6 +25,16 @@ Completely the task 'Kata09: Back to the Checkout' is here:
 http://codekata.com/kata/kata09-back-to-the-checkout/
 
 ```
+
+## What is Easy Rules?
+Easy Rules is a Java rules engine inspired by an article called "Should I use a Rules Engine?" of Martin Fowler in which Martin says:
+
+```
+You can build a simple rules engine yourself. All you need is to create a bunch of objects with conditions and actions, store them in a collection, and run through them to evaluate the conditions and execute the actions.
+
+```
+
+This is exactly what Easy Rules does, it provides the Rule abstraction to create rules with conditions and actions, and the RulesEngine API that runs through a set of rules to evaluate conditions and execute actions.
 
 ## How to run
 
