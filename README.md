@@ -19,6 +19,12 @@ This week, let’s implement the code for a supermarket checkout that calculates
     C     20
     D     15
 ```
+Completely the task 'Kata09: Back to the Checkout' is here:
+
+```
+http://codekata.com/kata/kata09-back-to-the-checkout/
+
+```
 
 ## How to run
 
