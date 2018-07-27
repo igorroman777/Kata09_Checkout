@@ -1,0 +1,50 @@
+# Item   Unit    Special      Discount
+# Price          Price
+# ------------------------------------
+# A     50       3 for 130      20
+# B     30       2 for 45       15
+# C     20
+# D     15
+    
+---
+name: "Item A for 50"
+description: "Item A for 50"
+priority: 1
+condition: "item.value == 'A'"
+actions: 
+    - "item.setPrice(item.quantity * 50);"
+---
+name: "Item B for 30"
+description: "Item B for 30"
+priority: 1
+condition: "item.value == 'B'"
+actions: 
+    - "item.setPrice(item.quantity * 30);"
+---
+name: "Item C for 20"
+description: "Item C for 20"
+priority: 1
+condition: "item.value == 'C'"
+actions: 
+    - "item.setPrice(item.quantity * 20);"
+---
+name: "Item D for 15"
+description: "Item D for 15"
+priority: 1
+condition: "item.value == 'D'"
+actions: 
+    - "item.setPrice(item.quantity * 15);"
+---
+name: "Item A: 3 for 130"
+description: "buy three ‘A’s and they’ll cost you $130"
+priority: 2
+condition: "item.getValue().equals('A') && item.getQuantity() / 3 >= 1"
+actions: 
+    - "int quotient = item.getQuantity() / 3;  item.setPrice(item.getPrice() - quotient * 20)"
+---
+name: "Item B: 2 for 45"
+description: "buy two ‘B’s and they’ll cost you $45"
+priority: 2
+condition: "item.getValue().equals('B') && item.getQuantity() / 2 >= 1"
+actions: 
+    - "int quotient = item.getQuantity() / 2;  item.setPrice(item.getPrice() - quotient * 15)"
